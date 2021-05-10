@@ -3,10 +3,10 @@ import Header from 'src/components/Header'
 
 const Home = () => {
     return (
-        <div className="bg-background h-screen">
+        <div>
             <Header />
             <div className="text-text flex justify-center items-center">
-                you
+                Welcome to Kelly Shen's interactive portfolio
             </div>
         </div>
     );

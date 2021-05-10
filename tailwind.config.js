@@ -4,10 +4,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        text: '#8CFFFF',
+        header: '#ffd8a6',
+        text: '#ffffff',
         background: '#141414',
       },
     },
+    fontFamily: {
+      caveat: 'Caveat',
+      opensans: 'Open Sans',
+      majormonodisplay: 'Major Mono Display',
+      roboto: 'Roboto'
+    }
   },
   variants: {
     extend: {},
