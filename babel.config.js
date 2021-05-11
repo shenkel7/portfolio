@@ -7,6 +7,7 @@ const plugins = [
         "root": ["."],
         "alias": {
             "src": "./src",
+            "public": "./public",
         }
     }],
 ];

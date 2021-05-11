@@ -7,7 +7,8 @@ import {
 import Home from 'src/screens/Home'
 import About from 'src/screens/About'
 import { routes } from 'src/constants/routes'
-import Works from "src/screens/Works";
+import Works from "src/screens/Works"
+import Contact from "src/screens/Contact"
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route path={routes.WORKS}>
           <Works />
+        </Route>
+        <Route path={routes.CONTACT}>
+          <Contact />
         </Route>
       </Switch>
     </Router>
