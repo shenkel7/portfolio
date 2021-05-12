@@ -11,7 +11,7 @@ export type TWork = {
     category: string;
 };
 
-const WorksList : TWork[] = [
+export const WorksList : TWork[] = [
     {
         path: "/assets/the_hanged.png",
         name: "The Hanged",
@@ -37,7 +37,7 @@ const Works = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-10">
                 {
                     WorksList.map((work, index) => 
-                        <Link key={index} href={`${location}/${work.name}`}>
+                        <Link key={index} href={`${location}/${index}`}>
                             {/* <Work {...work} /> */}
                             <div className="flex flex-col justify-center items-center" >
                                 <img className="hover:opacity-60 transition-all ease-in" src={work.path} alt={work.name} />

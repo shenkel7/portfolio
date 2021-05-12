@@ -2,16 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  /* @font-face {
-    font-family: Proxima Nova;
-    font-weight: 400;
-    src: url(/fonts/proxima-nova/400-regular.woff) format("woff");
-  }
-  @font-face {
-    font-family: Proxima Nova;
-    font-weight: 500;
-    src: url(/fonts/proxima-nova/500-medium.woff) format("woff");
-  } */
+@layer utilities {
+    .intro-text {
+        overflow-wrap: anywhere;
+    }
+            
+    .single-letter {
+        display: inline-block;
+        transform-origin: 50% 84%;
+        
+    }
 
+    .hovered {
+        /* animation-name: stretch;
+        animation-duration: 0.15s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards; */
+        font-family: Major Mono Display;
+    }
+
+    .unhovered {
+        /* animation-name: stretch-back;
+        animation-duration: 0.25s;
+        animation-timing-function: linear; */
+    }
+
+    .line-1{
+        position: relative;
+        top: 50%;  
+        margin: 0;
+        border-right: 2px solid rgba(255,255,255,.75);
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        transform: translateY(-50%);    
+    }
+    
+
+    .anim-typewriter{
+        animation: typewriter 1s steps(44) 1s 1 normal both,
+                   blinkTextCursor 500ms steps(44) infinite normal;
+      }
+
+    @keyframes typewriter{
+        from{width: 0;}
+        to{width: 28em;} 
+        /* hardcoded */
+      }
+
+    @keyframes stretch {
+        from,
+        0% {
+      
+        }
+      
+        40% {
+            transform: scale(1, 1.35);
+        }
+      
+        100% {
+            transform: scale(1, 1.2);
+        }
+      }
+      
+      @keyframes stretch-back {
+        from,
+        0% {
+            transform: scale(1, 1.2);
+        }
+      
+        33% {
+            transform: scale(1, 1);
+        }
+      
+        66% {
+            transform: scale(1, 1.08);
+        }
+      
+        100% {
+            transform: scale(1, 1);
+        }
+      }
 }
