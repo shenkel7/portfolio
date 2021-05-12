@@ -38,13 +38,13 @@ const About = () => {
                             Links
                         </div>
                         <div className="flex flex-row w-full justify-center">
-                            <a href="https://github.com/shenkel7" >
+                            <a rel="preload" href="https://github.com/shenkel7" >
                                 <Logo src="/assets/logos/GitHub-Mark-Light-120px-plus.png" alt="GitHub" />
                             </a>
-                            <a href="https://www.artstation.com/aquafroq">
+                            <a rel="preload" href="https://www.artstation.com/aquafroq">
                                 <Logo src="/assets/logos/Artstation-logo.png" alt="ArtStation" />
                             </a>
-                            <a href="https://www.linkedin.com/in/kelly-shen-8218011b6/">
+                            <a rel="preload"  href="https://www.linkedin.com/in/kelly-shen-8218011b6/">
                                 <Logo src="/assets/logos/LI-In-Bug.png" alt="Linkedin" />
                             </a>
                         </div>
