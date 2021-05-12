@@ -1,6 +1,9 @@
 import React from 'react'
 import Header from 'src/components/Header'
-import Work from 'src/components/Work';
+// import Work from 'src/components/Work';
+import WorkPage from 'src/screens/WorkPage';
+import { Switch, Route, useLocation, Link, useRoute } from 'wouter';
+import { routes } from 'src/constants/routes';
 
 export type TWork = {
     path: string;
@@ -27,12 +30,26 @@ const WorksList : TWork[] = [
 ];
 
 const Works = () => {
-    return (
-        <div className="text-text">
+    const [location, setLocation] = useLocation();
+
+    return (<div className="text-text">
             <Header />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-10">
                 {
-                    WorksList.map((work) => <Work {...work} />)
+                    WorksList.map((work, index) => 
+                        <Link key={index} href={`${location}/${work.name}`}>
+                            {/* <Work {...work} /> */}
+                            <div className="flex flex-col justify-center items-center" >
+                                <img className="hover:opacity-60 transition-all ease-in" src={work.path} alt={work.name} />
+                                <p>
+                                    {work.name}
+                                </p>
+                                <p>
+                                    {work.category}
+                                </p>
+                            </div>
+                        </Link>
+                    )
                 }
             </div>
         </div>
