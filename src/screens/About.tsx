@@ -16,11 +16,11 @@ const About = () => {
     return (
         <div>
             <Header />
-            <div className="flex flex-row p-8">
+            <div className="flex flex-row justify-center p-8">
                 <video className="hidden md:block" preload="yes" playsInline autoPlay muted loop width={400}>
-                    <source src="assets/blinkyme.mp4" type="video/mp4" />
+                    <source src="/assets/blinkyme.mp4" type="video/mp4" />
                 </video>
-                <div className="text-text flex flex-col mt-10">
+                <div className="text-text flex flex-col mt-10 max-w-2xl text-lg">
                     Hello there, traveler! 
                     <br />
                     <br />
@@ -39,13 +39,13 @@ const About = () => {
                         </div>
                         <div className="flex flex-row w-full justify-center">
                             <a href="https://github.com/shenkel7" >
-                                <Logo src="assets/logos/GitHub-Mark-Light-120px-plus.png" alt="GitHub" />
+                                <Logo src="/assets/logos/GitHub-Mark-Light-120px-plus.png" alt="GitHub" />
                             </a>
                             <a href="https://www.artstation.com/aquafroq">
-                                <Logo src="assets/logos/Artstation-logo.png" alt="ArtStation" />
+                                <Logo src="/assets/logos/Artstation-logo.png" alt="ArtStation" />
                             </a>
                             <a href="https://www.linkedin.com/in/kelly-shen-8218011b6/">
-                                <Logo src="assets/logos/LI-In-Bug.png" alt="Linkedin" />
+                                <Logo src="/assets/logos/LI-In-Bug.png" alt="Linkedin" />
                             </a>
                         </div>
                     </div>
