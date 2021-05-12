@@ -1,0 +1,77 @@
+.introduction-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 100vh;
+
+    div {
+        width: 50%;
+        color: black;
+        font-size: 2.5rem;
+        line-height: 100%;
+        
+        .intro-text {
+            width: 80%;
+            overflow-wrap: anywhere;
+            
+            .single-letter {
+                display: inline-block;
+                transform-origin: 50% 84%;
+                
+            }
+  
+            .hovered {
+                animation-name: stretch;
+                animation-duration: 0.15s;
+                animation-timing-function: linear;
+                animation-fill-mode: forwards
+                
+            }
+  
+            .unhovered {
+                animation-name: stretch-back;
+                animation-duration: 0.25s;
+                animation-timing-function: linear;
+            }
+        }
+    }
+  }
+  
+  
+  
+  @keyframes stretch {
+    from,
+    0% {
+  
+    }
+  
+    40% {
+        transform: scale(1, 1.35);
+    }
+  
+    100% {
+        transform: scale(1, 1.2);
+    }
+  }
+  
+  @keyframes stretch-back {
+    from,
+    0% {
+        transform: scale(1, 1.2);
+    }
+  
+    33% {
+        transform: scale(1, 1);
+    }
+  
+    66% {
+        transform: scale(1, 1.08);
+    }
+  
+    100% {
+        transform: scale(1, 1);
+    }
+  }
+  
+  
