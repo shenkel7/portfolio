@@ -8,6 +8,9 @@ module.exports = {
         text: '#ffffff',
         background: '#141414',
       },
+      scale: {
+        'flip': '-1',
+      },
       // keyframes: {
       //   roll: {
       //     '0%, 100%': { transform: 'translateX(0) rotate(0deg)' },

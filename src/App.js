@@ -9,6 +9,7 @@ import { routes } from 'src/constants/routes'
 import Works from "src/screens/Works"
 import Contact from "src/screens/Contact"
 import WorkPage from 'src/screens/WorkPage'
+import Secret1 from 'src/screens/secrets/Secret1'
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
         </Route>
         <Route path={routes.CONTACT}>
           <Contact />
+        </Route>
+        <Route path={routes.SECRET1}>
+          <Secret1 />
         </Route>
       </Switch>
     </Router>

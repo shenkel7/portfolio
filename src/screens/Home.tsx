@@ -1,7 +1,10 @@
-import React, {useState, Fragment} from 'react'
+import React, {useState, Fragment, useRef, useEffect} from 'react'
 import Header from 'src/components/Header'
+import anime from 'animejs'
+import { Link } from 'wouter';
+import { routes } from 'src/constants/routes';
 
-function IntroLetter({ char } : {char: string;}) {
+function TypeLetter({ char } : {char: string;}) {
     const [hoverClass, setHoverClass] = useState("single-letter");
     return (
       <span
@@ -14,23 +17,23 @@ function IntroLetter({ char } : {char: string;}) {
     );
   }
   
-  function IntroWord({ word }: {word: string;}) {
+  function TypeWord({ word }: {word: string;}) {
     return (
       <span style={{ display: "inline-block" }}>
         {word.split("").map((letter, letterIndex) => (
-          <IntroLetter key={letterIndex} char={letter} />
+          <TypeLetter key={letterIndex} char={letter} />
         ))}
       </span>
     );
   }
 
-function IntroText({ children }: {children: string;}) {
+function TypeText({ children }: {children: string;}) {
     return (
       <div>
         <p className="intro-text anim-typewriter line-1">
           {children.split(" ").map((word, wordIndex) => (
             <Fragment>
-              <IntroWord key={wordIndex} word={word} />
+              <TypeWord key={wordIndex} word={word} />
               <span> </span>
             </Fragment>
           ))}
@@ -40,16 +43,36 @@ function IntroText({ children }: {children: string;}) {
   }
 
 const Home = () => {
+    const myRef = useRef(null);
+
+    useEffect(() => {
+        anime({
+            targets: myRef.current,
+            keyframes: [
+            {translateY: 20},
+            ],
+            direction: "alternate",
+            duration: 2000,
+            easing: "easeInOutSine",
+            loop: true,
+        });
+    },[])
+
     return (
         <div>
             <Header />
-            <div className="text-text flex justify-center items-center mt-10">
-                <IntroText>
+            <div className="text-text flex justify-center items-center my-10">
+                <TypeText>
                     Welcome to Kelly Shen's interactive portfolio
-                </IntroText>
+                </TypeText>
                 <div className="absolute bottom-0 text-background select-none">
                     Think you're cheeky, huh?
                 </div>
+            </div>
+            <div ref={myRef} className="absolute right-40">
+                <Link href={routes.SECRET1}>
+                    <img className="w-32" src="/assets/exicrisme.png" alt=""/>
+                </Link>
             </div>
         </div>
     );

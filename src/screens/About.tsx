@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import Header from 'src/components/Header';
+import anime from 'animejs';
 
 type TLogo = {
     src: string;
@@ -13,14 +14,28 @@ const Logo = ({src, alt} : TLogo) => {
 }
 
 const About = () => {
+    const myRef = useRef(null);
+
+    useEffect(() => {
+        setTimeout(() => {
+            anime({
+              targets: myRef.current,
+              opacity: [0, 1],
+              translateX: [-100, 0],
+              duration: 500,
+              easing: "easeOutBack"
+            });
+          }, 100);
+    },[])
+
     return (
         <div>
             <Header />
             <div className="flex flex-row justify-center p-8">
-                <video className="hidden md:block" preload="yes" playsInline autoPlay muted loop width={400}>
+                <video ref={myRef} className="hidden md:block" preload="yes" playsInline autoPlay muted loop width={400}>
                     <source src="/assets/blinkyme.mp4" type="video/mp4" />
                 </video>
-                <div className="text-text flex flex-col mt-10 max-w-2xl text-lg">
+                <div className="text-text flex flex-col mt-10 ml-4 max-w-2xl text-lg">
                     Hello there, traveler! 
                     <br />
                     <br />
