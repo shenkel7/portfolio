@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Header from 'src/components/Header';
 import anime from 'animejs';
 
@@ -16,6 +16,16 @@ const Logo = ({src, alt} : TLogo) => {
 const About = () => {
     const myRef = useRef(null);
     const textRef = useRef(null);
+
+    const [fontState, setFontState] = useState("font-robotomono");
+
+    const toggleFontState = () => {
+        if(fontState === "font-robotomono"){
+            setFontState("font-majormonodisplay");
+        } else {
+            setFontState("font-robotomono");
+        }
+    }
 
     useEffect(() => {
             anime({
@@ -37,10 +47,11 @@ const About = () => {
         <div>
             <Header />
             <div className="flex flex-row justify-center p-8">
-                <video ref={myRef} className="hidden md:block" preload="yes" playsInline autoPlay muted loop width={400}>
+                <video onClick={() => toggleFontState()} ref={myRef} className="hidden md:block" preload="yes" playsInline autoPlay muted loop width={400}>
                     <source src="/assets/blinkyme.mp4" type="video/mp4" />
                 </video>
                 <div ref={textRef} className="text-text flex flex-col mt-10 ml-4 max-w-2xl text-lg">
+                    <p className={fontState} >
                     Hello there, traveler! 
                     <br />
                     <br />
@@ -52,6 +63,7 @@ const About = () => {
                     <br />
                     This site is a little hobby of mine to showcase some of those artworks.
                     I hope you find your stay refreshing.
+                    </p>
 
                     <div className="mt-24 flex flex-col items-center">
                         <div className="font-majormonodisplay mb-4">

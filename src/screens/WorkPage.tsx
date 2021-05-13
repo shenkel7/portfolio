@@ -7,8 +7,8 @@ const WorkPage = ({index}: {index: number;}) => {
     return (
         <div>
             <Header />
-            <div className="text-text flex justify-center items-center">
-                <img src={WorksList[index].path} />
+            <div className="text-text flex justify-center items-center mt-10">
+                <img className="w-4/5" src={WorksList[index].path} />
             </div>
         </div>
     );

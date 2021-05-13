@@ -43,8 +43,9 @@ const Works = () => {
                     WorksList.map((work, index) => 
                         <Link key={index} href={`${location}/${index}`}>
                             {/* <Work {...work} /> */}
-                            <div className="flex flex-col justify-center items-center" >
-                                <img className="hover:opacity-60 transition-all ease-in" src={work.thumbnail} alt={work.name} />
+                            <div className="group flex flex-col justify-center items-center" >
+                                <img className="group-hover:opacity-60 transition-all ease-in" src={work.thumbnail} alt={work.name} />
+                                <img className="opacity-0 group-hover:opacity-100 transition-opacity ease-in absolute w-40" src="/assets/eye_idle.gif" />
                                 <p>
                                     {work.name}
                                 </p>
