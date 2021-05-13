@@ -74,15 +74,15 @@ const Home = () => {
                     <TypeText>
                         Welcome to Kelly Shen's interactive portfolio
                     </TypeText>
-                    <div className="absolute bottom-0 text-background select-none">
-                        Think you're cheeky, huh?
-                    </div>
                 </div>
                 <div ref={myRef} className="absolute right-40">
                     <Link href={routes.SECRET1}>
                         <img className="w-32" src="/assets/exicrisme.png" alt=""/>
                     </Link>
                 </div>
+            </div>
+            <div className="absolute bottom-0 text-background select-none">
+                Think you're cheeky, huh?
             </div>
         </div>
     );
