@@ -6,7 +6,8 @@ const Contact = () => {
         <div>
             <Header />
             <div className="text-text flex justify-center items-center">
-                Contact
+                Want to ask me anything? Buy me a coffee?
+                You can contact me here:
             </div>
         </div>
     );

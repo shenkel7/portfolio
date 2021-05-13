@@ -15,9 +15,9 @@ const Logo = ({src, alt} : TLogo) => {
 
 const About = () => {
     const myRef = useRef(null);
+    const textRef = useRef(null);
 
     useEffect(() => {
-        setTimeout(() => {
             anime({
               targets: myRef.current,
               opacity: [0, 1],
@@ -25,7 +25,12 @@ const About = () => {
               duration: 500,
               easing: "easeOutBack"
             });
-          }, 100);
+            anime({
+                targets: textRef.current,
+                opacity: [0, 1],
+                duration: 500,
+                easing: "easeOutBack"
+              });
     },[])
 
     return (
@@ -35,7 +40,7 @@ const About = () => {
                 <video ref={myRef} className="hidden md:block" preload="yes" playsInline autoPlay muted loop width={400}>
                     <source src="/assets/blinkyme.mp4" type="video/mp4" />
                 </video>
-                <div className="text-text flex flex-col mt-10 ml-4 max-w-2xl text-lg">
+                <div ref={textRef} className="text-text flex flex-col mt-10 ml-4 max-w-2xl text-lg">
                     Hello there, traveler! 
                     <br />
                     <br />

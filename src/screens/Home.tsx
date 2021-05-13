@@ -44,6 +44,7 @@ function TypeText({ children }: {children: string;}) {
 
 const Home = () => {
     const myRef = useRef(null);
+    const pageRef = useRef(null);
 
     useEffect(() => {
         anime({
@@ -56,23 +57,32 @@ const Home = () => {
             easing: "easeInOutSine",
             loop: true,
         });
+
+        anime({
+            targets: pageRef.current,
+            opacity: [0, 1],
+            duration: 300,
+            easing: "easeOutSine"
+        })
     },[])
 
     return (
         <div>
             <Header />
-            <div className="text-text flex justify-center items-center my-10">
-                <TypeText>
-                    Welcome to Kelly Shen's interactive portfolio
-                </TypeText>
-                <div className="absolute bottom-0 text-background select-none">
-                    Think you're cheeky, huh?
+            <div ref={pageRef}>
+                <div className="text-text flex justify-center items-center my-10">
+                    <TypeText>
+                        Welcome to Kelly Shen's interactive portfolio
+                    </TypeText>
+                    <div className="absolute bottom-0 text-background select-none">
+                        Think you're cheeky, huh?
+                    </div>
                 </div>
-            </div>
-            <div ref={myRef} className="absolute right-40">
-                <Link href={routes.SECRET1}>
-                    <img className="w-32" src="/assets/exicrisme.png" alt=""/>
-                </Link>
+                <div ref={myRef} className="absolute right-40">
+                    <Link href={routes.SECRET1}>
+                        <img className="w-32" src="/assets/exicrisme.png" alt=""/>
+                    </Link>
+                </div>
             </div>
         </div>
     );

@@ -7,23 +7,27 @@ import { routes } from 'src/constants/routes';
 
 export type TWork = {
     path: string;
+    thumbnail: string;
     name: string;
     category: string;
 };
 
 export const WorksList : TWork[] = [
     {
-        path: "/assets/the_hanged.png",
+        path: "/assets/works/the_hanged.png",
+        thumbnail: "assets/thumbnails/the_hanged_thumbnail.jpg",
         name: "The Hanged",
         category: "Personal Project - Elucidate",
     },
     {
-        path: "/assets/the_devoured.png",
+        path: "/assets/works/the_devoured.png",
+        thumbnail: "assets/thumbnails/the_devoured_thumbnail.jpg",
         name: "The Devoured",
         category: "Personal Project - Elucidate",
     },
     {
-        path: "/assets/the_poisoned.png",
+        path: "/assets/works/the_poisoned.png",
+        thumbnail: "assets/thumbnails/the_poisoned_thumbnail.jpg",
         name: "The Poisoned",
         category: "Personal Project - Elucidate",
     }
@@ -34,13 +38,13 @@ const Works = () => {
 
     return (<div className="text-text">
             <Header />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 my-10">
                 {
                     WorksList.map((work, index) => 
                         <Link key={index} href={`${location}/${index}`}>
                             {/* <Work {...work} /> */}
                             <div className="flex flex-col justify-center items-center" >
-                                <img className="hover:opacity-60 transition-all ease-in" src={work.path} alt={work.name} />
+                                <img className="hover:opacity-60 transition-all ease-in" src={work.thumbnail} alt={work.name} />
                                 <p>
                                     {work.name}
                                 </p>
