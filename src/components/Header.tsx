@@ -5,7 +5,7 @@ import { routes } from 'src/constants/routes'
 
 const NameHeader = () => {
     return (
-        <img className="absolute top-0 w-96 max-w-md" src="/assets/signature.png" alt="Kelly Shen"/>
+        <img className="absolute top-0 w-80 max-w-md" src="/assets/signature.png" alt="Kelly Shen"/>
     )
 }
 
@@ -19,7 +19,7 @@ type TDynamicLink = {
 const DynamicLink = ({to, current, children, onClick} : TDynamicLink) => {
     if(to === current){
         return (
-            <Link className="font-majormonodisplay text-3xl md:text-6xl font-bold mx-4 md:mx-8 z-10 transform transition-all hover:scale-105" 
+            <Link className="font-majormonodisplay sm:text-2xl md:text-6xl font-bold px-4 md:px-8 z-10 transform transition-all hover:scale-105" 
             onClick={ onClick ?? onClick}
             to={to}>
             {children}
@@ -27,7 +27,7 @@ const DynamicLink = ({to, current, children, onClick} : TDynamicLink) => {
         )
     } else {
         return (
-            <Link className="font-majormonodisplay text-lg md:text-2xl font-bold mx-4 md:mx-8 z-10 transform transition-all hover:scale-125" 
+            <Link className="font-majormonodisplay sm:text-md md:text-2xl font-bold px-4 md:px-8 z-10 transform transition-all hover:scale-125" 
             onClick={ onClick ?? onClick}
             to={to}>
             {children}
@@ -42,7 +42,7 @@ const Header = () => {
 
 
     return (
-        <div className="text-header bg-transparent w-full flex items-center justify-center px-8 pt-16 pb-8">
+        <div className="text-header bg-transparent flex items-center justify-center px-8 pt-16 pb-8">
             <NameHeader />
             <DynamicLink to={routes.HOME} current={location} onClick={()=>{console.log("clicked")}}>
                 Home

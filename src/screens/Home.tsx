@@ -70,7 +70,7 @@ const Home = () => {
         <div>
             <Header />
             <div ref={pageRef}>
-                <div className="text-text flex justify-center items-center my-10">
+                <div className="text-text flex justify-center items-center py-10">
                     <TypeText>
                         Welcome to Kelly Shen's interactive portfolio
                     </TypeText>
