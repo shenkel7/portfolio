@@ -46,11 +46,11 @@ const About = () => {
     return (
         <div>
             <Header />
-            <div className="flex flex-row justify-center p-8">
-                <video onClick={() => toggleFontState()} ref={myRef} className="hidden md:block" preload="yes" playsInline autoPlay muted loop width={400}>
+            <div className="flex flex-col md:flex-row justify-center p-8">
+                <video onClick={() => toggleFontState()} ref={myRef} className="order-2 md:order-1 mr-4" preload="yes" playsInline autoPlay muted loop width={400}>
                     <source src="/assets/blinkyme.mp4" type="video/mp4" />
                 </video>
-                <div ref={textRef} className="text-text flex flex-col mt-10 ml-4 max-w-2xl text-lg">
+                <div ref={textRef} className="order-1 md:order-2 text-text flex flex-col mt-0 md:mt-10 max-w-2xl text-base md:text-lg ">
                     <p className={fontState} >
                     Hello there, traveler! 
                     <br />
@@ -65,7 +65,7 @@ const About = () => {
                     I hope you find your stay refreshing.
                     </p>
 
-                    <div className="mt-24 flex flex-col items-center">
+                    <div className="my-10 md:mt-24 flex flex-col items-center">
                         <div className="font-majormonodisplay mb-4">
                             Links
                         </div>
