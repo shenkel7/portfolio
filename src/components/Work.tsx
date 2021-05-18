@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'wouter';
-import { TWork } from 'src/screens/Works' 
+import { TWork } from 'src/constants/works' 
 // import { routes } from 'src/constants/routes'
 
 // need to change hover to javascript later

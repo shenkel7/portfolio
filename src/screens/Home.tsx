@@ -70,15 +70,15 @@ const Home = () => {
         <div>
             <Header />
             <div ref={pageRef}>
-                <div className="text-text flex justify-center items-center py-10">
+                <div className="text-text flex flex-col justify-center items-center py-10 relative">
                     <TypeText>
                         Welcome to Kelly Shen's interactive portfolio
                     </TypeText>
-                </div>
-                <div ref={myRef} className="absolute right-40">
-                    <Link href={routes.SECRET1}>
-                        <img className="w-32" src="/assets/exicrisme.png" alt=""/>
-                    </Link>
+                    <div ref={myRef} className="absolute top-36">
+                        <Link href={routes.SECRET1}>
+                            <img className="w-32" src="/assets/exicrisme.png" alt=""/>
+                        </Link>
+                    </div>
                 </div>
             </div>
             <div className="absolute bottom-0 text-background select-none">
