@@ -28,7 +28,13 @@ module.exports = {
       majormonodisplay: 'Major Mono Display',
       roboto: 'Roboto',
       robotomono: 'Roboto Mono',
-    }
+    },
+    zIndex: {
+      '-10': '-10',
+     },
+     animation: {
+      'pulse-slow': 'pulse 4s linear infinite',
+     }
   },
   variants: {
     extend: {},

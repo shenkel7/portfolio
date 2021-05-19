@@ -16,7 +16,7 @@ const WorkPage = ({index}: {index: number;}) => {
                 <div className="font-majormonodisplay">
                     {WorksList[index].name}
                 </div>
-                <img className="h-screen my-8" src={WorksList[index].path} />
+                <img className="h-screen object-contain my-8" src={WorksList[index].path} />
                 <div className="mb-8">
                     Hey
                 </div>

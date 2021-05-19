@@ -45,9 +45,8 @@ const Works = () => {
         )
     }
 
-
-    console.log(WorkTypes[0].title)
-    return (<div className="text-text">
+    return (
+        <div className="text-text">
             <Header />
             <div className="flex justify-center font-majormonodisplay flex-col sm:flex-row md:flex-row md:mt-10">
                 {
@@ -72,10 +71,10 @@ const Works = () => {
                             <div className="group flex flex-col justify-center items-center cursor-pointer" >
                                 <img className="group-hover:opacity-60 transition-all ease-in" src={work.thumbnail} alt={work.name} />
                                 <img className="opacity-0 group-hover:opacity-100 transition-opacity ease-in absolute w-40" src="/assets/eye_idle.gif" />
-                                <p>
+                                <p className="text-center">
                                     {work.name}
                                 </p>
-                                <p>
+                                <p className="text-center">
                                     {work.category}
                                 </p>
                             </div>
@@ -83,6 +82,9 @@ const Works = () => {
                     )
                 }
             </div>
+            <Link className="relative" href={routes.SECRET2}>
+                <img className="absolute right-0 opacity-10 h-40" src="/assets/ephemeris.png"/>
+            </Link>
         </div>
     );
 }

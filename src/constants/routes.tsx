@@ -4,5 +4,5 @@ export const routes = {
     ABOUT: '/about',
     CONTACT: '/contact',
     SECRET1: '/404',
-    SECRET2: '/sousvide',
+    SECRET2: '/ephemeris',
 }
