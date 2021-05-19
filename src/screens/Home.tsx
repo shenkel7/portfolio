@@ -76,7 +76,7 @@ const Home = () => {
                     </TypeText>
                     <div ref={myRef} className="absolute top-36">
                         <Link href={routes.SECRET1}>
-                            <img className="w-32" src="/assets/exicrisme.png" alt=""/>
+                            <img className="w-32 cursor-pointer" src="/assets/exicrisme.png" alt=""/>
                         </Link>
                     </div>
                 </div>

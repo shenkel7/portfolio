@@ -31,3 +31,7 @@ export const WorksList : TWork[] = [
         category: "Personal Project",
     }
 ];
+
+export const InteractiveList : TWork[] = [];
+
+export const CodeList : TWork[] = [];

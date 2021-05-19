@@ -7,6 +7,7 @@ module.exports = {
         header: '#ffd8a6',
         text: '#ffffff',
         background: '#141414',
+        gray: '#6e6e6e',
       },
       scale: {
         'flip': '-1',
