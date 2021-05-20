@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import Header from 'src/components/Header';
-import anime from 'animejs';
+// import anime from 'animejs';
 
 type TLogo = {
     src: string;

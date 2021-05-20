@@ -1,4 +1,6 @@
-export type TWork = {
+import { ReactNode } from 'react'
+
+export interface TWork {
     path: string;
     thumbnail: string;
     name: string;
@@ -32,6 +34,10 @@ export const WorksList : TWork[] = [
     }
 ];
 
-export const InteractiveList : TWork[] = [];
+export interface TInteractiveWork extends TWork {
+    page: ReactNode;
+}
+
+export const InteractiveList : TInteractiveWork[] = [];
 
 export const CodeList : TWork[] = [];

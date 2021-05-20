@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Header from 'src/components/Header'
-// import Work from 'src/components/Work';
-import WorkPage from 'src/screens/WorkPage';
-import { Switch, Route, useLocation, Link, useRoute } from 'wouter';
+import { useLocation, Link } from 'wouter';
 import { routes } from 'src/constants/routes';
 import { WorksList, InteractiveList, CodeList, TWork } from 'src/constants/works';
+import anime from 'animejs'
 
 type TWorkType = {
     title: string;
@@ -31,8 +30,37 @@ const Works = () => {
     const [category, setCategory] = useState(0);
     const [currentList, setCurrentList] = useState(WorkTypes[0].list);
 
+    const myRef = useRef(null);
+
     useEffect(()=> {
         setCurrentList(WorkTypes[category].list);
+
+        anime({
+            targets: myRef.current,
+            keyframes: [
+            {
+                translateY: 20,
+                opacity: '0%',
+            
+            },
+            {
+                translateY: -20,
+                opacity: '100%',
+            
+            },
+            ],
+            // direction: "forward",
+            // delay: 100,
+            duration: 500,
+            easing: "easeInOutSine",
+        });
+
+        return () => {
+            anime({
+                opacity: '0%',
+                duration: 100,
+            })
+        }
     }, [category])
 
     const SubCategory = ({title, current, onClick}: {title: string; current: number; onClick: () => void;}) => {
@@ -63,14 +91,14 @@ const Works = () => {
                     Coming soon
                 </div>
             }
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 my-10">
+            <div ref={myRef} className="translate-y-8 opacity-0 grid grid-cols-1 md:grid-cols-3 gap-8 px-10 my-10">
                 {
                     currentList.map((work, index) => 
                         <Link key={index} href={`${location}/${WorkTypes[category].title}/${index}`}>
                             {/* <Work {...work} /> */}
                             <div className="group flex flex-col justify-center items-center cursor-pointer" >
                                 <img className="group-hover:opacity-60 transition-all ease-in" src={work.thumbnail} alt={work.name} />
-                                <img className="opacity-0 group-hover:opacity-100 transition-opacity ease-in absolute w-40" src="/assets/eye_idle.gif" />
+                                <img className="opacity-0 group-hover:opacity-100 transition-opacity ease-in absolute w-40" src="/assets/eye_idle.gif" alt=""/>
                                 <p className="text-center">
                                     {work.name}
                                 </p>
@@ -83,7 +111,7 @@ const Works = () => {
                 }
             </div>
             <Link className="relative" href={routes.SECRET2}>
-                <img className="absolute right-0 opacity-10 h-40" src="/assets/ephemeris.png"/>
+                <img className="absolute right-0 opacity-10 h-40" src="/assets/ephemeris.png" alt=""/>
             </Link>
         </div>
     );

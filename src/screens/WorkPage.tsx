@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Header from 'src/components/Header'
-import { WorksList } from 'src/constants/works'
 import { WorkTypes } from 'src/screens/Works'
 
 const WorkPage = ({index, type}: {index: number; type: string;}) => {
@@ -18,7 +17,7 @@ const WorkPage = ({index, type}: {index: number; type: string;}) => {
                 <div className="font-majormonodisplay">
                     {WorkList ? WorkList.list[index].name : ""}
                 </div>
-                <img className="h-screen object-contain my-8" src={ WorkList ? WorkList.list[index].path : ""} />
+                <img className="h-screen object-contain my-8" src={ WorkList ? WorkList.list[index].path : ""} alt={WorkList ? WorkList.list[index].name : ""}/>
                 <div className="mb-8">
                     Hey
                 </div>
