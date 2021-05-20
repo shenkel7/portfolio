@@ -28,29 +28,29 @@ const About = () => {
     }
 
     useEffect(() => {
-            anime({
-              targets: myRef.current,
-              opacity: [0, 1],
-              translateX: [-100, 0],
-              duration: 500,
-              easing: "easeOutBack"
-            });
-            anime({
-                targets: textRef.current,
-                opacity: [0, 1],
-                duration: 500,
-                easing: "easeOutBack"
-              });
+            // anime({
+            //   targets: myRef.current,
+            //   opacity: [0, 1],
+            //   translateX: [-100, 0],
+            //   duration: 500,
+            //   easing: "easeOutBack"
+            // });
+            // anime({
+            //     targets: textRef.current,
+            //     opacity: [0, 1],
+            //     duration: 500,
+            //     easing: "easeOutBack"
+            //   });
     },[])
 
     return (
         <div>
             <Header />
             <div className="flex flex-col md:flex-row justify-center p-8">
-                <video onClick={() => toggleFontState()} ref={myRef} className="order-2 md:order-1 mr-4" preload="yes" playsInline autoPlay muted loop width={400}>
+                <video onClick={() => toggleFontState()} ref={myRef} className="anim-slide-right order-2 md:order-1 mr-4" preload="yes" playsInline autoPlay muted loop width={400}>
                     <source src="/assets/blinkyme.mp4" type="video/mp4" />
                 </video>
-                <div ref={textRef} className="order-1 md:order-2 text-text flex flex-col mt-0 md:mt-10 max-w-2xl text-base md:text-lg ">
+                <div ref={textRef} className="anim-fade-in order-1 md:order-2 text-text flex flex-col mt-0 md:mt-10 max-w-2xl text-base md:text-lg ">
                     <p className={fontState} >
                     Hello there, traveler! 
                     <br />
