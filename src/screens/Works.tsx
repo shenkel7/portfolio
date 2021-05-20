@@ -11,7 +11,7 @@ type TWorkType = {
     list: Array<TWork>;
 }
 
-const WorkTypes : TWorkType[] = [
+export const WorkTypes : TWorkType[] = [
     {
         title: "Illustrations",
         list: WorksList,
@@ -66,7 +66,7 @@ const Works = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-10 my-10">
                 {
                     currentList.map((work, index) => 
-                        <Link key={index} href={`${location}/${index}`}>
+                        <Link key={index} href={`${location}/${WorkTypes[category].title}/${index}`}>
                             {/* <Work {...work} /> */}
                             <div className="group flex flex-col justify-center items-center cursor-pointer" >
                                 <img className="group-hover:opacity-60 transition-all ease-in" src={work.thumbnail} alt={work.name} />

@@ -23,13 +23,13 @@ function App() {
         <Route path={routes.ABOUT}>
           <About />
         </Route>
-        <Route path={routes.WORKS}>
+        <Route path={`${routes.WORKS}`}>
           <Works />
         </Route>
-        <Route path={`${routes.WORKS}/:index`}>
+        <Route path={`${routes.WORKS}/:type/:index`}>
             {params => {
             return (
-                <WorkPage index={params.index}/>
+                <WorkPage index={params.index} type={params.type}/>
             );
           }}
         </Route>
