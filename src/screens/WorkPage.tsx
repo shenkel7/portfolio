@@ -19,7 +19,7 @@ const WorkPage = ({index, type}: {index: number; type: string;}) => {
                 <div className="font-majormonodisplay">
                     {workList ? workList[index].name : ""}
                 </div>
-                <img className="h-screen object-contain mt-8 mb-4" src={ workList ? workList[index].path : ""} alt={workList ? workList[index].name : ""}/>
+                <img className="w-4/5 object-contain mt-8 mb-4" src={ workList ? workList[index].path : ""} alt={workList ? workList[index].name : ""}/>
                 <div className="mb-8 whitespace-pre-line p-8 md:p-24">
                     {workList ? workList[index].description : ""}
                 </div>

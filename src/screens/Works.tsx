@@ -78,7 +78,9 @@ const MapCode = () => {
                     {/* <Work {...work} /> */}
                     <div className="group flex flex-col justify-center items-center cursor-pointer" >
                         <div className="flex flex-col justify-center items-center">
-                            <img className="group-hover:opacity-60 transition-all ease-in" src={work.thumbnail} alt={work.name} />
+                            <div className="bg-black">
+                                <img className="group-hover:opacity-60 transition-all ease-in h-48 object-contain" src={work.thumbnail} alt={work.name} />
+                            </div>
                             <img className="opacity-0 group-hover:opacity-100 transition-opacity ease-in absolute w-36" src="/assets/eye_idle.gif" alt=""/>
                         </div>
                         
@@ -143,14 +145,15 @@ const Works = () => {
             // delay: 100,
             duration: 500,
             easing: "easeInOutSine",
+        
         });
 
-        return () => {
-            anime({
-                opacity: '0%',
-                duration: 100,
-            })
-        }
+        // return () => {
+        //     anime({
+        //         opacity: '0%',
+        //         duration: 100,
+        //     })
+        // }
     }, [category])
 
     const SubCategory = ({title, current, onClick}: {title: string; current: number; onClick: () => void;}) => {

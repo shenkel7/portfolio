@@ -61,6 +61,18 @@ export const WorksList : TWork[] = [
         <p>
             A piece aiming to capture the feeling of loss and depersonalization.
         </p>,
+    },
+    {
+        path: "/assets/works/sous_vide.png",
+        thumbnail: "/assets/thumbnails/sous_vide_thumbnail.jpg",
+        name: "Sous Vide",
+        category: "Personal Project",
+        description: 
+        <p>
+            Fin gers cut like car rot tops
+            <br />
+            And go well in pickled stew.
+        </p>,
     }
 ];
 
@@ -72,14 +84,36 @@ export const InteractiveList : TInteractiveWork[] = [];
 
 export const CodeList : TWork[] = [
     {
+        path: "/assets/codeworks/grassland.jpg",
+        thumbnail: "/assets/codeworks/grassland.jpg",
+        name: "Byte-Sized Biome Generator",
+        category: `C#, Shaderlab, Unity`,
+        description: 
+        <p>
+            Create a mini-biome with inputs of precipitation and temperature!
+        </p>,
+        link: "https://github.com/shenkel7/Byte-sized-Biome-Generator"
+    },
+    {
         path: "/assets/codeworks/critter-picker.png",
         thumbnail: "/assets/codeworks/critter-picker.png",
         name: "Critter Picker",
-        category: `React, Petfinder API, Firebase`,
+        category: `Javascript, React, Petfinder API, Firebase`,
         description: 
         <p>
             Tinder for finding your future soul-pet.
         </p>,
         link: "https://github.com/shenkel7/Critter-Picker"
+    },
+    {
+        path: "/assets/codeworks/dungeon_addventure.png",
+        thumbnail: "/assets/codeworks/dungeon_addventure.png",
+        name: "Dungeon ADDVenture",
+        category: `Javascript, React Native, Firebase`,
+        description: 
+        <p>
+            An educational math game for kids built using an unconventional game engine.
+        </p>,
+        link: "https://devpost.com/software/dungeon-addventure"
     }
 ];
