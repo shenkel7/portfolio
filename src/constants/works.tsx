@@ -62,18 +62,6 @@ export const WorksList : TWork[] = [
             A piece aiming to capture the feeling of loss and depersonalization.
         </p>,
     },
-    {
-        path: "/assets/works/sous_vide.png",
-        thumbnail: "/assets/thumbnails/sous_vide_thumbnail.jpg",
-        name: "Sous Vide",
-        category: "Personal Project",
-        description: 
-        <p>
-            Fin gers cut like car rot tops
-            <br />
-            And go well in pickled stew.
-        </p>,
-    }
 ];
 
 export interface TInteractiveWork extends TWork {
