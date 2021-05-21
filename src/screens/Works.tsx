@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, ReactNode } from 'react'
 import Header from 'src/components/Header'
 import { useLocation, Link } from 'wouter';
 import { routes } from 'src/constants/routes';
@@ -8,25 +8,116 @@ import anime from 'animejs'
 type TWorkType = {
     title: string;
     list: Array<TWork>;
+    mapper: ReactNode;
+}
+
+const MapIllustrations = () => {
+    const [location, setLocation] = useLocation();
+
+    return (
+        <>
+        {
+            WorksList.map((work, index) => 
+                <Link key={index} href={`${location}/Illustrations/${index}`}>
+                    {/* <Work {...work} /> */}
+                    <div className="group flex flex-col justify-center items-center cursor-pointer" >
+                        <div className="flex flex-col justify-center items-center">
+                            <img className="group-hover:opacity-60 transition-all ease-in" src={work.thumbnail} alt={work.name} />
+                            <img className="opacity-0 group-hover:opacity-100 transition-opacity ease-in absolute w-36" src="/assets/eye_idle.gif" alt=""/>
+                        </div>
+                        <p className="text-center">
+                            {work.name}
+                        </p>
+                        <p className="text-center">
+                            {work.category}
+                        </p>
+                    </div>
+                </Link>
+            )
+        }
+    </>
+    )
+}
+
+const MapInteractives = () => {
+    const [location, setLocation] = useLocation();
+
+    return (
+        <>
+        {
+            InteractiveList.map((work, index) => 
+                <Link key={index} href={`${location}/Interactive/${index}`}>
+                    {/* <Work {...work} /> */}
+                    <div className="group flex flex-col justify-center items-center cursor-pointer" >
+                        <div className="flex flex-col justify-center items-center">
+                            <img className="group-hover:opacity-60 transition-all ease-in" src={work.thumbnail} alt={work.name} />
+                            <img className="opacity-0 group-hover:opacity-100 transition-opacity ease-in absolute w-36" src="/assets/eye_idle.gif" alt=""/>
+                        </div>
+                        <p className="text-center">
+                            {work.name}
+                        </p>
+                        <p className="text-center">
+                            {work.category}
+                        </p>
+                    </div>
+                </Link>
+            )
+        }
+    </>
+    )
+}
+
+const MapCode = () => {
+    const [location, setLocation] = useLocation();
+
+    return (
+        <>
+        {
+            CodeList.map((work, index) => 
+                <a key={index} href={work.link}>
+                    {/* <Work {...work} /> */}
+                    <div className="group flex flex-col justify-center items-center cursor-pointer" >
+                        <div className="flex flex-col justify-center items-center">
+                            <img className="group-hover:opacity-60 transition-all ease-in" src={work.thumbnail} alt={work.name} />
+                            <img className="opacity-0 group-hover:opacity-100 transition-opacity ease-in absolute w-36" src="/assets/eye_idle.gif" alt=""/>
+                        </div>
+                        
+                        <p className="text-center text-lg">
+                            {work.name}
+                        </p>
+                        <p className="text-center mb-2">
+                            {work.category}
+                        </p>
+                        <p className="text-sm">
+                            {work.description}
+                        </p>
+                    </div>
+                </a>
+            )
+        }
+    </>
+    )
 }
 
 export const WorkTypes : TWorkType[] = [
     {
         title: "Illustrations",
         list: WorksList,
+        mapper: <MapIllustrations />
     },
     {
         title: "Interactive",
         list: InteractiveList,
+        mapper: <MapInteractives />
     },
     {
         title: "Code Projects",
         list: CodeList,
+        mapper: <MapCode />
     },
  ]
 
 const Works = () => {
-    const [location, setLocation] = useLocation();
     const [category, setCategory] = useState(0);
     const [currentList, setCurrentList] = useState(WorkTypes[0].list);
 
@@ -34,7 +125,6 @@ const Works = () => {
 
     useEffect(()=> {
         setCurrentList(WorkTypes[category].list);
-
         anime({
             targets: myRef.current,
             keyframes: [
@@ -92,25 +182,10 @@ const Works = () => {
                 </div>
             }
             <div ref={myRef} className="translate-y-8 opacity-0 grid grid-cols-1 md:grid-cols-3 gap-8 px-10 my-10">
-                {
-                    currentList.map((work, index) => 
-                        <Link key={index} href={`${location}/${WorkTypes[category].title}/${index}`}>
-                            {/* <Work {...work} /> */}
-                            <div className="group flex flex-col justify-center items-center cursor-pointer" >
-                                <img className="group-hover:opacity-60 transition-all ease-in" src={work.thumbnail} alt={work.name} />
-                                <img className="opacity-0 group-hover:opacity-100 transition-opacity ease-in absolute w-40" src="/assets/eye_idle.gif" alt=""/>
-                                <p className="text-center">
-                                    {work.name}
-                                </p>
-                                <p className="text-center">
-                                    {work.category}
-                                </p>
-                            </div>
-                        </Link>
-                    )
-                }
+                {WorkTypes[category].mapper}
             </div>
-            <Link className="relative" href={routes.SECRET2}>
+           
+            <Link className="relative cursor-pointer" href={routes.SECRET2}>
                 <img className="absolute right-0 opacity-10 h-40" src="/assets/ephemeris.png" alt=""/>
             </Link>
         </div>
