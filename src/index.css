@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer utilities {
+    @font-face {
+        font-family: Ephemeris;
+        src: local("Ephemeris"),
+        url("./fonts/Ephemeris-Regular.ttf") format("truetype");;
+    }
+
     .intro-text {
         overflow-wrap: anywhere;
     }

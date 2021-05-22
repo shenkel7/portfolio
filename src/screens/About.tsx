@@ -21,7 +21,7 @@ const About = () => {
 
     const toggleFontState = () => {
         if(fontState === "font-robotomono"){
-            setFontState("font-majormonodisplay");
+            setFontState("font-ephemeris text-xl select-none");
         } else {
             setFontState("font-robotomono");
         }

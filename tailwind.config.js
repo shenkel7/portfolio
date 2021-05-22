@@ -28,6 +28,7 @@ module.exports = {
       majormonodisplay: 'Major Mono Display',
       roboto: 'Roboto',
       robotomono: 'Roboto Mono',
+      ephemeris: 'Ephemeris',
     },
     zIndex: {
       '-10': '-10',

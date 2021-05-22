@@ -24,8 +24,9 @@ const Secret1 = () => {
             <Link href={routes.HOME}>
                 <img ref={myRef} className="w-40 transform cursor-pointer" src="/assets/exicrisme.png" alt=""/>
             </Link>
-            <div className="text-header mx-10">
-                HEehsehoasehfoasdifh
+            <div className="w-1/2 text-header mx-10 font-ephemeris text-xl select-none">
+                I didn't think I'd see anyone out here. It's quite lonely in space.
+                Hello, astro-friend!
             </div>
             <div className="absolute bottom-0 text-background select-none">
             You crave the slow death/
