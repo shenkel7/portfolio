@@ -6,8 +6,11 @@ const Contact = () => {
         <div>
             <Header />
             <div className="text-text flex justify-center items-center px-10">
-                Want to ask me anything? Buy me a coffee?
-                You can contact me here:
+                Want to ask or chat about anything?
+                You can contact me&ensp;
+                <span className="text-header">
+                    <a href="mailto:kellyshenportfolio@gmail.com"> here.</a>
+                </span>
             </div>
         </div>
     );

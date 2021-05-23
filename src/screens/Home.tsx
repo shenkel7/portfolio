@@ -3,6 +3,7 @@ import Header from 'src/components/Header'
 import anime from 'animejs'
 import { Link } from 'wouter';
 import { routes } from 'src/constants/routes';
+import Typewriter from 'typewriter-effect'
 
 function TypeLetter({ char } : {char: string;}) {
     const [hoverClass, setHoverClass] = useState("single-letter");
@@ -70,15 +71,29 @@ const Home = () => {
         <div>
             <Header />
             <div ref={pageRef}>
-                <div className="text-text flex flex-col justify-center items-center py-10 relative">
-                    <TypeText>
-                        Welcome to Kelly Shen's interactive portfolio
-                    </TypeText>
-                    <div ref={myRef} className="absolute top-36">
-                        <Link href={routes.SECRET1}>
-                            <img className="w-32 cursor-pointer" src="/assets/exicrisme.png" alt=""/>
-                        </Link>
+                <div className="h-screen">
+                    <div className="text-text text-center flex flex-col justify-center items-center py-10 px-4 relative">
+                        {/* <TypeText>
+                            Welcome to Kelly Shen's interactive portfolio
+                        </TypeText> */}
+                        <Typewriter 
+                            options={{
+                                delay: 15
+                            }}
+                            onInit={(typewriter) => {
+                                typewriter.typeString(`Welcome to Kelly Shen's interactive portfolio`)
+                                .pauseFor(5000)
+                                .start();
+                            }}
+                        />
+
+                        <div ref={myRef} className="absolute top-36">
+                            <Link href={routes.SECRET1}>
+                                <img className="w-32 cursor-pointer" src="/assets/exicrisme.png" alt=""/>
+                            </Link>
+                        </div>
                     </div>
+
                 </div>
             </div>
             <div className="absolute bottom-0 text-background select-none">
