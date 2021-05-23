@@ -16,14 +16,17 @@ const About = () => {
         }
     }
 
+    const vidSlide = () => {
+        anime({
+            targets: myRef.current,
+            opacity: [0, 1],
+            translateX: [-100, 0],
+            duration: 500,
+            easing: "easeOutBack"
+          });
+    }
+
     useEffect(() => {
-            anime({
-              targets: myRef.current,
-              opacity: [0, 1],
-              translateX: [-100, 0],
-              duration: 500,
-              easing: "easeOutBack"
-            });
             anime({
                 targets: textRef.current,
                 opacity: [0, 1],
@@ -36,7 +39,7 @@ const About = () => {
         <div>
             <Header />
             <div className="flex flex-col md:flex-row justify-center p-8">
-                <video onClick={() => toggleFontState()} ref={myRef} className="order-2 md:order-1 mr-4" preload="yes" playsInline autoPlay muted loop width={400}>
+                <video onLoadedData={vidSlide} onClick={() => toggleFontState()} ref={myRef} className="order-2 md:order-1 mr-4 opacity-0" preload="yes" playsInline autoPlay muted loop width={400}>
                     <source src="/assets/blinkyme.mp4" type="video/mp4" />
                 </video>
                 <div ref={textRef} className="order-1 md:order-2 text-text flex flex-col mt-0 md:mt-10 max-w-2xl text-base md:text-lg ">
