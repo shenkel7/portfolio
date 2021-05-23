@@ -2,17 +2,6 @@ import React, {useEffect, useRef, useState} from 'react';
 import Header from 'src/components/Header';
 import anime from 'animejs';
 
-type TLogo = {
-    src: string;
-    alt: string;
-};
-
-const Logo = ({src, alt} : TLogo) => {
-    return (
-        <img className="h-8 mx-6" src={src} alt={alt} />
-    );
-}
-
 const About = () => {
     const myRef = useRef(null);
     const textRef = useRef(null);
@@ -63,24 +52,10 @@ const About = () => {
                     <br />
                     This site is a little hobby of mine to showcase some of those artworks.
                     I hope you find your stay refreshing.
+                    <br />
+                    <br />
+                    P.S. This site is chock-full of secrets. Can you find them?
                     </p>
-
-                    <div className="my-10 md:mt-24 flex flex-col items-center">
-                        <div className="font-majormonodisplay mb-4">
-                            Links
-                        </div>
-                        <div className="flex flex-row w-full justify-center">
-                            <a rel="preload" href="https://github.com/shenkel7" >
-                                <Logo src="/assets/logos/GitHub-Mark-Light-120px-plus.png" alt="GitHub" />
-                            </a>
-                            <a rel="preload" href="https://www.artstation.com/aquafroq">
-                                <Logo src="/assets/logos/Artstation-logo.png" alt="ArtStation" />
-                            </a>
-                            <a rel="preload"  href="https://www.linkedin.com/in/kelly-shen-8218011b6/">
-                                <Logo src="/assets/logos/LI-In-Bug.png" alt="Linkedin" />
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
