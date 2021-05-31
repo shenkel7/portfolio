@@ -1,40 +1,44 @@
 import React, { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { useFrame } from '@react-three/fiber';
+import { useTexture } from "@react-three/drei";
+
+const MAX_POINTS = 3000;
 
 const Stars = () => {
-  let group = useRef<THREE.Group>(null);
-  let theta = 0;
-  useFrame(() => {
-    if (group.current) {
-      const r = 5 * Math.sin(THREE.MathUtils.degToRad((theta += 0.002)));
-      const s = Math.cos(THREE.MathUtils.degToRad(theta * 2));
-      group.current.rotation.set(r, r, r);
-      group.current.scale.set(s, s, s);
+
+    const points = useRef<THREE.Points>();
+    let theta = 0;
+    useFrame(() => {
+    if (points.current) {
+        const r = 5 * Math.sin(THREE.MathUtils.degToRad((theta -= 0.002)));
+        const s = Math.cos(THREE.MathUtils.degToRad(theta * 10));
+        points.current.rotation.set(r, r, r);
+        points.current.scale.set(s, s, s);
     }
   });
 
-  const [geo, mat, coords] = useMemo(() => {
-    const geo = new THREE.SphereBufferGeometry(0.3, 10, 10);
-    const mat = new THREE.MeshBasicMaterial({
-      color: new THREE.Color("#ffddaa")
-    });
-    const coords = new Array(1000)
-      .fill([0,0,0])
-      .map(i => [
-        Math.random() * 800 - 400,
-        Math.random() * 800 - 400,
-        Math.random() * 800 - 400
-      ]);
-    return [geo, mat, coords];
+  const [positions] = useMemo(() => {
+    //create stars
+    
+    let positions = [];
+    for(let i = 0; i < 1000; i++){
+        for(let j = 0; j < 3; j++){ // x,y,z
+            positions.push(Math.random() * 600 - 300);
+        }
+    }
+
+    return [new Float32Array(positions)];
   }, []);
 
   return (
-    <group ref={group}>
-      {coords.map(([p1, p2, p3], i) => (
-        <mesh key={i} geometry={geo} material={mat} position={[p1, p2, p3]} />
-      ))}
-    </group>
+    <points ref={points}>
+      <bufferGeometry attach="geometry">
+        <bufferAttribute attachObject={["attributes", "position"]} count={positions.length / 3} array={positions} itemSize={3} />
+        {/* <bufferAttribute ref={attrib} attachObject={["attributes", "color"]} count={colors.length / 3} array={colors} itemSize={3} /> */}
+      </bufferGeometry>
+      <pointsMaterial attach="material" color="#ffddaa" size={1.0} sizeAttenuation={false} />
+    </points>
   );
 };
 export { Stars };
