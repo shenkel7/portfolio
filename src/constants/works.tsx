@@ -13,7 +13,7 @@ export const WorksList : TWork[] = [
     {
         path: "/assets/works/the_hanged.png",
         thumbnail: "/assets/thumbnails/the_hanged_thumbnail.jpg",
-        name: "The Hanged",
+        name: "One",
         category: "Personal Project - Elucidate",
         description: <p>ELUCIDATE I
         <br />
@@ -30,7 +30,7 @@ export const WorksList : TWork[] = [
     {
         path: "/assets/works/the_devoured.png",
         thumbnail: "/assets/thumbnails/the_devoured_thumbnail.jpg",
-        name: "The Devoured",
+        name: "Two",
         category: "Personal Project - Elucidate",
         description: <p>ELUCIDATE II
         <br />
@@ -48,7 +48,7 @@ export const WorksList : TWork[] = [
     {
         path: "/assets/works/the_poisoned.png",
         thumbnail: "/assets/thumbnails/the_poisoned_thumbnail.jpg",
-        name: "The Poisoned",
+        name: "Three",
         category: "Personal Project - Elucidate",
         description: "",
     },

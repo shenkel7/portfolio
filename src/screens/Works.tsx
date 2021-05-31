@@ -25,12 +25,12 @@ const MapIllustrations = () => {
                             <img className="group-hover:opacity-60 transition-all ease-in" src={work.thumbnail} alt={work.name} />
                             <img className="opacity-0 group-hover:opacity-100 transition-opacity ease-in absolute w-36" src="/assets/eye_idle.gif" alt=""/>
                         </div>
-                        <p className="text-center">
+                        {/* <p className="text-center">
                             {work.name}
                         </p>
                         <p className="text-center">
                             {work.category}
-                        </p>
+                        </p> */}
                     </div>
                 </Link>
             )
