@@ -30,9 +30,9 @@ module.exports = {
       robotomono: 'Roboto Mono',
       ephemeris: 'Ephemeris',
     },
-    zIndex: {
-      '-10': '-10',
-     },
+    // zIndex: {
+    //   '-10': '-10',
+    //  },
      animation: {
       'pulse-slow': 'pulse 4s linear infinite',
      }

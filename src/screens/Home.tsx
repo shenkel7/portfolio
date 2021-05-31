@@ -1,7 +1,7 @@
 import React, {useState, Fragment, useRef, useEffect, useLayoutEffect, Suspense} from 'react'
 import Header from 'src/components/Header'
 import anime from 'animejs'
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { routes } from 'src/constants/routes';
 import Typewriter from 'typewriter-effect'
 import { Canvas, useFrame } from '@react-three/fiber'
@@ -46,17 +46,26 @@ function TypeText({ children }: {children: string;}) {
 
 const Home = () => {
     const exicrisRef = useRef(null);
+    const shiftRef = useRef(null);
     const pageRef = useRef(document.createElement("div"));
+    const [location, setLocation] = useLocation();
     const [scrolled, setScrolled] = useState(false);
     const [zoom, setZoom] = useState(false);
 
     const bottomPos = pageRef.current.getBoundingClientRect().bottom;
     const scrollHandler = (scroll : any) => {
         // console.log(scroll);
+        if(window.scrollY > 0){
+            upShift(-1);
+        } else {
+            upShift(1);
+        }
+
         const scrollPosition = window.scrollY + window.innerHeight
         if (bottomPos < scrollPosition) {
           // trigger animation
         //   setScrolled(true);
+            
         } else {
             // setScrolled(false);
         }
@@ -90,16 +99,29 @@ const Home = () => {
 
     },[])
 
+    const upShift = (factor: number) => {
+        anime({
+            targets: shiftRef.current,
+            keyframes: [
+                {translateY: factor * (window.innerHeight - 300)},
+            ],
+            duration: 2000,
+            easing: 'easeOutExpo',
+        })
+    }
+
     return (
         <div>
-            <Header delay={800} onPress={() => setZoom(true)}/>
+            <Header delay={800} onPress={() => {
+                setZoom(true);
+            }}/>
             <Canvas style={{
                 position: "fixed",
                 top: 0,
                 left: 0,
                 width: "100%",
                 height: "100%",
-                zIndex: -1,
+                zIndex: -11,
             }}
             camera={{ fov: 75, near: 0.1, far: 1000, position: [0, 0, 5] }}
             >
@@ -109,7 +131,7 @@ const Home = () => {
                     <Stars scrolled={scrolled} zoom={zoom}/>
                 </Suspense>
             </Canvas>
-            <div>
+            <div className="relative">
                 <div className="h-screen" ref={pageRef}>
                     <div className="text-text text-left flex flex-col justify-center py-10 px-4 md:px-16 relative whitespace-pre-line">
                         {/* <TypeText>
@@ -129,15 +151,15 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="">
-                <div ref={exicrisRef} className="absolute">
+                <div  className="relative right-0" ref={shiftRef}>
+                <div ref={exicrisRef} className="flex items-center justify-center">
                     <Link href={routes.SECRET1}>
                         <img className="w-20 cursor-pointer" src="/assets/exicrisme.png" alt=""/>
                     </Link>
                 </div>
-                <div className="text-text text-center flex flex-col justify-center items-center px-4">
+                {/* <div className="text-text text-center flex flex-col justify-center items-center px-4">
                     Heysdgjkasgoiahsgp
-                </div>
+                </div> */}
                 </div>
             </div>
             <div className="absolute bottom-0 text-background select-none">

@@ -4,7 +4,7 @@ import { useFrame } from '@react-three/fiber';
 import { useTexture } from "@react-three/drei";
 
 const MAX_POINTS = 3000;
-const MAX_VELOCITY = 10;
+const MAX_VELOCITY = 5;
 
 const Stars = ({scrolled, zoom} : {scrolled: boolean; zoom: boolean}) => {
 
@@ -12,6 +12,7 @@ const Stars = ({scrolled, zoom} : {scrolled: boolean; zoom: boolean}) => {
     let theta = 0;
     let velocity = 0;
     let acceleration = .5;
+    let zoomVelocity = 0;
     let zoomAcceleration = 1;
     useFrame(() => {
     if (points.current) {
@@ -26,16 +27,17 @@ const Stars = ({scrolled, zoom} : {scrolled: boolean; zoom: boolean}) => {
             }
             points.current.translateY(velocity);
             if(points.current.position.y > 400){
-                points.current.position.y = -100;
+                // points.current.position.y = -100;
                 acceleration = 0;
+                velocity = 0
             }
         } else if(zoom && points.current){
-            if( velocity < MAX_VELOCITY){
-                velocity += zoomAcceleration;
+            if( zoomVelocity < MAX_VELOCITY){
+                zoomVelocity += zoomAcceleration;
             }
-            points.current.translateZ(velocity);
+            points.current.translateZ(zoomVelocity);
             if(points.current.position.z > 400){
-                acceleration = 0;
+                // acceleration = 0;
             }
         }
     }
@@ -47,7 +49,7 @@ const Stars = ({scrolled, zoom} : {scrolled: boolean; zoom: boolean}) => {
     let positions = [];
     for(let i = 0; i < 1000; i++){
         for(let j = 0; j < 3; j++){ // x,y,z
-            positions.push(Math.random() * 600 - 300);
+            positions.push(Math.random() * 800 - 400);
         }
     }
 

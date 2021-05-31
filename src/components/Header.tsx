@@ -52,9 +52,12 @@ const Header = ({delay, onPress} : IHeader) => {
             <NameHeader />
             <DynamicLink to={routes.HOME} current={displayLocation} 
             onClick={()=>{
-                setDisplayLocation(routes.HOME);
-                setTimeout(() => setLocation(routes.HOME), delay ? delay : 0);
-                onPress && onPress();
+                if(displayLocation !== routes.HOME){
+
+                    setDisplayLocation(routes.HOME);
+                    setTimeout(() => setLocation(routes.HOME), delay ? delay : 0);
+                    onPress && onPress();
+                }
             }}>
                 Home
             </DynamicLink>
