@@ -1,4 +1,4 @@
-import React, {useState, Fragment, useRef, useEffect, useLayoutEffect} from 'react'
+import React, {useState, Fragment, useRef, useEffect, useLayoutEffect, Suspense} from 'react'
 import Header from 'src/components/Header'
 import anime from 'animejs'
 import { Link } from 'wouter';
@@ -47,6 +47,8 @@ function TypeText({ children }: {children: string;}) {
 const Home = () => {
     const exicrisRef = useRef(null);
     const pageRef = useRef(document.createElement("div"));
+    const [scrolled, setScrolled] = useState(false);
+    const [zoom, setZoom] = useState(false);
 
     const bottomPos = pageRef.current.getBoundingClientRect().bottom;
     const scrollHandler = (scroll : any) => {
@@ -54,6 +56,9 @@ const Home = () => {
         const scrollPosition = window.scrollY + window.innerHeight
         if (bottomPos < scrollPosition) {
           // trigger animation
+        //   setScrolled(true);
+        } else {
+            // setScrolled(false);
         }
 
     }
@@ -87,7 +92,7 @@ const Home = () => {
 
     return (
         <div>
-            <Header />
+            <Header delay={800} onPress={() => setZoom(true)}/>
             <Canvas style={{
                 position: "fixed",
                 top: 0,
@@ -100,7 +105,9 @@ const Home = () => {
             >
                 <pointLight position={[10, 10, 10]}/>
                 <ambientLight />
-                <Stars />
+                <Suspense fallback={null}>
+                    <Stars scrolled={scrolled} zoom={zoom}/>
+                </Suspense>
             </Canvas>
             <div>
                 <div className="h-screen" ref={pageRef}>

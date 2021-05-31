@@ -6,13 +6,13 @@ import { useTexture } from "@react-three/drei";
 const MAX_POINTS = 3000;
 const MAX_VELOCITY = 10;
 
-const Stars = () => {
+const Stars = ({scrolled, zoom} : {scrolled: boolean; zoom: boolean}) => {
 
-    const [scrolled, setScrolled] = useState(false);
     const points = useRef<THREE.Points>();
     let theta = 0;
     let velocity = 0;
     let acceleration = .5;
+    let zoomAcceleration = 1;
     useFrame(() => {
     if (points.current) {
         const r = 5 * Math.sin(THREE.MathUtils.degToRad((theta * .01)));
@@ -28,8 +28,16 @@ const Stars = () => {
             if(points.current.position.y > 400){
                 points.current.position.y = -100;
                 acceleration = 0;
-              }
-          }
+            }
+        } else if(zoom && points.current){
+            if( velocity < MAX_VELOCITY){
+                velocity += zoomAcceleration;
+            }
+            points.current.translateZ(velocity);
+            if(points.current.position.z > 400){
+                acceleration = 0;
+            }
+        }
     }
   });
 

@@ -38,10 +38,10 @@ export const WorksList : TWork[] = [
         Your father used to tell you that it was a sink or swim world, and you took his words to heart perhaps a little too much.
         <br />
         <br />
-        The water in <span className="font-ephemeris select-none">Owsey Sound</span> is warm in the summer, slipping between your ankles like heated silk. It laps at your calves, then your thighs, then your chest, pressing against you with the vigor of a living thing. You will it to carry you outwards, where your father is waiting, tethered by seagrass to his favorite mistress.
+        The water in <span className="font-ephemeris select-none">Cataclysm Sound</span> is warm in the summer, slipping between your ankles like heated silk. It laps at your calves, then your thighs, then your chest, pressing against you with the vigor of a living thing. You will it to carry you outwards, where your father is waiting, tethered by seagrass to his favorite mistress.
         <br />
         <br />
-        You look up at the moon. You frown. This is not <span className="font-ephemeris select-none">Owsey Sound</span>. But the sea hooks around the crook of your elbow and pulls, and you acquiesce because water is water everywhere.
+        In a moment of lucidity, you surveil the surrounding sea. You frown. This is not <span className="font-ephemeris select-none">Cataclysm Sound</span>. But the sea hooks around the crook of your elbow and pulls, and you acquiesce because water is water everywhere.
 
         </p>,
     },

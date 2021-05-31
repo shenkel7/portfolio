@@ -19,41 +19,67 @@ type TDynamicLink = {
 const DynamicLink = ({to, current, children, onClick} : TDynamicLink) => {
     if(to === current){
         return (
-            <Link className="font-majormonodisplay text-xl sm:text-xl md:text-6xl font-bold px-2 md:px-8 z-10 transform transition-all hover:scale-105" 
+            <div className="font-majormonodisplay text-xl sm:text-xl md:text-6xl font-bold px-2 md:px-8 z-10 transform transition-all hover:scale-105" 
             onClick={ onClick ?? onClick}
-            to={to}>
+            >
             {children}
-            </Link>
+            </div>
         )
     } else {
         return (
-            <Link className="font-majormonodisplay text-sm sm:text-base md:text-2xl font-bold px-2 md:px-8 z-10 transform transition-all hover:scale-125" 
+            <div className="font-majormonodisplay text-sm sm:text-base md:text-2xl font-bold px-2 md:px-8 z-10 transform transition-all hover:scale-125" 
             onClick={ onClick ?? onClick}
-            to={to}>
+            >
             {children}
-            </Link>
+            </div>
         )
     }
 }
 
-const Header = () => {
+interface IHeader {
+    delay?: number;
+    onPress?: () => void;
+}
+
+const Header = ({delay, onPress} : IHeader) => {
     const [location, setLocation] = useLocation();
+    const [displayLocation, setDisplayLocation] = useState(location);
 
 
 
     return (
         <div className="text-header bg-transparent flex items-center justify-center px-8 pt-16 pb-8">
             <NameHeader />
-            <DynamicLink to={routes.HOME} current={location} onClick={()=>{console.log("clicked")}}>
+            <DynamicLink to={routes.HOME} current={displayLocation} 
+            onClick={()=>{
+                setDisplayLocation(routes.HOME);
+                setTimeout(() => setLocation(routes.HOME), delay ? delay : 0);
+                onPress && onPress();
+            }}>
                 Home
             </DynamicLink>
-            <DynamicLink to={routes.WORKS} current={location}>
+            <DynamicLink to={routes.WORKS} current={displayLocation} 
+            onClick={()=>{
+                setDisplayLocation(routes.WORKS);
+                setTimeout(() => setLocation(routes.WORKS), delay ? delay : 0);
+                onPress && onPress();
+            }}>
                 Works
             </DynamicLink>
-            <DynamicLink to={routes.ABOUT} current={location}>
+            <DynamicLink to={routes.ABOUT} current={displayLocation} 
+            onClick={()=>{
+            setDisplayLocation(routes.ABOUT);
+            setTimeout(() => setLocation(routes.ABOUT), delay ? delay : 0);
+            onPress && onPress();
+            }}>
                 About
             </DynamicLink>
-            <DynamicLink to={routes.CONTACT} current={location}>
+            <DynamicLink to={routes.CONTACT} current={displayLocation}
+            onClick={()=>{
+            setDisplayLocation(routes.CONTACT);
+            setTimeout(() => setLocation(routes.CONTACT), delay ? delay : 0);
+            onPress && onPress();
+            }}>
                 Contact
             </DynamicLink>
         </div>
