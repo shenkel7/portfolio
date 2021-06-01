@@ -19,7 +19,7 @@ type TDynamicLink = {
 const DynamicLink = ({to, current, children, onClick} : TDynamicLink) => {
     if(to === current){
         return (
-            <div className="font-majormonodisplay text-xl sm:text-xl md:text-6xl font-bold px-2 md:px-8 z-10 transform transition-all hover:scale-105" 
+            <div className="font-majormonodisplay text-xl sm:text-xl md:text-6xl font-bold px-2 md:px-8 z-10 transform transition-all hover:scale-105 cursor-pointer" 
             onClick={ onClick ?? onClick}
             >
             {children}
@@ -27,7 +27,7 @@ const DynamicLink = ({to, current, children, onClick} : TDynamicLink) => {
         )
     } else {
         return (
-            <div className="font-majormonodisplay text-sm sm:text-base md:text-2xl font-bold px-2 md:px-8 z-10 transform transition-all hover:scale-125" 
+            <div className="font-majormonodisplay text-sm sm:text-base md:text-2xl font-bold px-2 md:px-8 z-10 transform transition-all hover:scale-125 cursor-pointer" 
             onClick={ onClick ?? onClick}
             >
             {children}

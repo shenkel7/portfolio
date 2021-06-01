@@ -163,7 +163,7 @@ const Home = () => {
                     </div> */}
                     </div>
                 </div>
-                <div className="absolute bottom-0 text-background select-none">
+                <div className="absolute bottom-0 text-background select-none -z-20" >
                     Think you're cheeky, huh?
                 </div>
                 </div>
