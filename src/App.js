@@ -11,6 +11,7 @@ import Contact from "src/screens/Contact"
 import WorkPage from 'src/screens/WorkPage'
 import Secret1 from 'src/screens/secrets/Secret1'
 import Secret2 from 'src/screens/secrets/Secret2'
+import CanvasClass from 'src/components/CanvasClass'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path={routes.HOME}>
+          <CanvasClass />
           <Home />
         </Route>
         <Route path={routes.ABOUT}>

@@ -3,10 +3,18 @@ import anime from 'animejs'
 import { Link } from 'wouter';
 import { routes } from 'src/constants/routes';
 
-const Secret1 = () => {
+const Secret1 = ({onClick}: {onClick: () => void;}) => {
     const myRef = useRef(null);
+    const pageRef = useRef(null);
+
 
     useEffect(() => {
+        anime({
+            targets: pageRef.current,
+            opacity: [0, 1],
+            duration: 800,
+            easing: "easeInOutSine",
+        });
         anime({
             targets: myRef.current,
             keyframes: [
@@ -20,7 +28,7 @@ const Secret1 = () => {
     },[])
 
     return (
-        <div className="flex justify-center items-center p-10">
+        <div ref={pageRef} className="flex justify-center items-center p-10">
             <Link href={routes.HOME}>
                 <img ref={myRef} className="w-40 transform cursor-pointer" src="/assets/exicrisme.png" alt=""/>
             </Link>

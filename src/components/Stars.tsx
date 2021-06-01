@@ -2,43 +2,56 @@ import React, { useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { useFrame } from '@react-three/fiber';
 import { useTexture } from "@react-three/drei";
+import { useStore } from "src/app/state";
 
 const MAX_POINTS = 3000;
 const MAX_VELOCITY = 5;
 
-const Stars = ({scrolled, zoom} : {scrolled: boolean; zoom: boolean}) => {
+const Stars = () => {
+
+    const scrolled = useStore(state => state.scroll);
+    const zoom = useStore(state => state.zoom);
 
     const points = useRef<THREE.Points>();
     let theta = 0;
     let velocity = 0;
     let acceleration = .5;
-    let zoomVelocity = 0;
-    let zoomAcceleration = 1;
-    useFrame(() => {
+    let zoomVelocity = 20;
+    let zoomAcceleration = 100;
+    useFrame((state) => {
     if (points.current) {
-        const r = 5 * Math.sin(THREE.MathUtils.degToRad((theta * .01)));
-        let s = Math.cos(THREE.MathUtils.degToRad(theta -= .5)) + 1.5;
+        if(state.clock.elapsedTime < 1.2){
+            points.current.scale.set(state.clock.elapsedTime, state.clock.elapsedTime, state.clock.elapsedTime);
+            
+        } else {
+
+            // const r = 5 * Math.sin(THREE.MathUtils.degToRad((-state.clock.elapsedTime * .5)));
+            let s = Math.sin(THREE.MathUtils.degToRad(state.clock.elapsedTime)) + 1.5;
+            points.current.scale.set(s, s, s);
+        }
+        
+        const r = 5 * Math.sin(THREE.MathUtils.degToRad((-state.clock.elapsedTime * .5)));
         points.current.rotation.set(0, r, 0);
-        points.current.scale.set(s, s, s);
+
 
         if(scrolled && points.current){
-            if( velocity < MAX_VELOCITY){
-                velocity += acceleration;
-            }
-            points.current.translateY(velocity);
-            if(points.current.position.y > 400){
-                // points.current.position.y = -100;
-                acceleration = 0;
-                velocity = 0
-            }
+            // if( velocity < MAX_VELOCITY){
+            //     velocity += acceleration;
+            // }
+            // points.current.translateY(velocity);
+            // if(points.current.position.y > 400){
+            //     // points.current.position.y = -100;
+            //     acceleration = 0;
+            //     velocity = 0
+            // }
         } else if(zoom && points.current){
             if( zoomVelocity < MAX_VELOCITY){
                 zoomVelocity += zoomAcceleration;
             }
-            points.current.translateZ(zoomVelocity);
-            if(points.current.position.z > 400){
-                // acceleration = 0;
-            }
+            state.camera.translateZ(-zoomVelocity);
+            // if(state.camera.position.z < 400){
+            //     // acceleration = 0;
+            // }
         }
     }
   });
