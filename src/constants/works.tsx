@@ -53,8 +53,8 @@ export const WorksList : TWork[] = [
         description: "",
     },
     {
-        path: "/assets/works/cutout_boy.png",
-        thumbnail: "/assets/thumbnails/cutout_boy_thumbnail.jpg",
+        path: "/assets/works/cutout_boy_dramatic.jpg",
+        thumbnail: "/assets/thumbnails/cutout_boy_dramatic_thumbnail.jpg",
         name: "Cutout Boy",
         category: "Personal Project",
         description: 
